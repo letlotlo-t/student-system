@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title th:text="${pageTitle}">Grades</title>
+    <style>* { font-family:Arial,sans-serif; } body { background:#F8F9FA; } .container { padding:32px; max-width:960px; margin:0 auto; } h2 { color:#006D77; } p { color:#555; margin-top:8px; font-size:14px; }</style>
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${pageTitle}">My Grades</h2>
+    <p th:text="${message}">Grades here.</p>
+</div>
+</body>
+</html>

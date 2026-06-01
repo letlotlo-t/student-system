@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${title} + ' | Student System'">Student System</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<!-- Shared header fragment -->
+<header th:fragment="header">
+    <h1>&#127979; Student Information System</h1>
+    <span>Geeks4Learning &middot; NQF Level 5</span>
+</header>
+
+<!-- Shared nav fragment with dropdown -->
+<nav th:fragment="nav">
+    <a th:href="@{/student/dashboard}">Dashboard</a>
+    <div class="nav-dropdown">
+        <a href="#">Student</a>
+        <div class="dropdown-menu">
+            <a th:href="@{/registration/form}">Course Registration</a>
+            <a th:href="@{/student/grades}">My Grades</a>
+            <a th:href="@{/student/profile}">My Profile</a>
+        </div>
+    </div>
+    <a th:href="@{/api/db/students}">Students</a>
+    <a th:href="@{/api/db/courses}">Courses</a>
+    <a th:href="@{/auth/logout}" style="margin-left:auto; color:#003D40;">Logout</a>
+</nav>
+
+<!-- Shared footer fragment -->
+<footer th:fragment="footer">
+    &copy; 2026 Student Information System &mdash; All rights reserved
+</footer>
+
+<!-- jQuery scripts fragment -->
+<div th:fragment="scripts">
+    <script>
+        // Confirmation modal trigger
+        $(document).on('click', '.btn-confirm', function(e) {
+            e.preventDefault();
+            var message = $(this).data('message') || 'Are you sure?';
+            var target  = $(this).data('target');
+            $('#modal-message').text(message);
+            $('#confirm-modal').addClass('active');
+            $('#modal-confirm-btn').data('target', target);
+        });
+
+        // Modal confirm
+        $('#modal-confirm-btn').on('click', function() {
+            var target = $(this).data('target');
+            if (target) { $(target).submit(); }
+            $('#confirm-modal').removeClass('active');
+        });
+
+        // Modal cancel
+        $('#modal-cancel-btn, #confirm-modal').on('click', function(e) {
+            if (e.target === this) {
+                $('#confirm-modal').removeClass('active');
+            }
+        });
+    </script>
+</div>
+
+<div th:fragment="bootstrap">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+
+</body>
+</html>

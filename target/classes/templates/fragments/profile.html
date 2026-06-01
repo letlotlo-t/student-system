@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="profileSection">
+    <table style="max-width:500px;">
+        <tbody>
+        <tr>
+            <td style="padding:10px; font-weight:bold; color:#006D77; width:160px; border-bottom:1px solid #d0e9eb;">Full Name</td>
+            <td style="padding:10px; border-bottom:1px solid #d0e9eb;" th:text="${studentName}">Letlotlo Tshoane</td>
+        </tr>
+        <tr>
+            <td style="padding:10px; font-weight:bold; color:#006D77; border-bottom:1px solid #d0e9eb;">Student No.</td>
+            <td style="padding:10px; border-bottom:1px solid #d0e9eb;" th:text="${studentNumber}">STU-2026-001</td>
+        </tr>
+        <tr>
+            <td style="padding:10px; font-weight:bold; color:#006D77; border-bottom:1px solid #d0e9eb;">Programme</td>
+            <td style="padding:10px; border-bottom:1px solid #d0e9eb;">Software Development NQF 5</td>
+        </tr>
+        <tr>
+            <td style="padding:10px; font-weight:bold; color:#006D77;">Email</td>
+            <td style="padding:10px;" th:text="${studentEmail}">student@geeks4learning.com</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
